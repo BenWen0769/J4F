@@ -5,9 +5,11 @@
 Mr. zhugong
 
 
-![](./wwwroot/img/zhugong.jpg)
-
 
 ```
 韶关....
 ```
+
+
+
+<img src="./J4F/wwwroot/img/zhugong.jpg" width="150" alt="帅哥"/>
