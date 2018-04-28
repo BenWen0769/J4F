@@ -43,7 +43,7 @@ $(function () {
         },
         methods: {
             menuClick: function(id) {
-                var menu = this.getMenuById(id);
+                var menu = this.getMenuById(id); 
                 handleSysMenu(menu);
             },
             getMenuById: function(id) {
