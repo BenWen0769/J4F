@@ -5,6 +5,9 @@
 Mr. zhugong
 
 
+![](./wwwroot/img/zhugong.jpg)
+
+
 ```
 韶关....
 ```
