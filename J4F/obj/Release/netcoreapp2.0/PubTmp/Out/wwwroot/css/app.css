@@ -1,0 +1,68 @@
+﻿
+
+.pageDiv{
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+[v-cloak] {
+	display: none
+}
+
+/*列表按钮div层*/
+.list-btn{
+	padding:10px 8px;
+	text-align:right;
+}
+/*列表搜索输入框*/
+.searchbar .searchInput {
+	padding-left:8px;
+	width: 200px;
+}
+/*隐藏Modal的footer*/
+.none-footer .ivu-modal-footer {
+	display: none;
+}
+
+/**文件附件**/
+.filelink{
+	display:inline-block;
+	font-size:12px;
+	color:cornflowerblue;
+	cursor:pointer;
+}
+
+.fileinfo .fa-download {
+	font-size: 16px;
+	color: #51a6e4;
+	cursor:pointer;
+	margin-left:8px;
+}
+
+
+.fileinfo .fa-times-circle {
+	font-size: 16px;
+	color: red;
+	cursor: pointer;
+	margin-left: 8px;
+}
+
+/**HSOA   Style**/
+.hslist {
+	padding: 0px 10px;
+}
+.ivu-table{
+	font-size: 14px;
+	color: #333;
+}
+.ivu-card {
+	color: #333;
+}
+
+textarea.ivu-input{
+	overflow:visible;
+}
+.ivu-tag {
+	cursor: default;
+}

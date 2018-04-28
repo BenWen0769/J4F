@@ -1,0 +1,306 @@
+﻿#app {
+	position: relative;
+	height: 100%;
+	padding-top: 60px;
+}
+
+html, body, .layout {
+	height: 100%;
+}
+
+.ifr {
+	width: 100%;
+	border: 0px;
+}
+.main_top{
+	position:absolute;
+	z-index:800;
+	margin-top:-60px;
+	height:60px;
+	line-height:60px;
+	width:100%;
+	/*background-image:url(/img/logo1.png);*/
+	background-repeat: no-repeat;
+	background-color: #3F74E9;
+	background-position: 15px 0px;
+	text-align: right;
+	color: White;
+	font-size: 14px;
+}
+/*.layout {*/
+	/*border: 1px solid #d7dde4;*/
+	/*background: #f5f7f9;*/
+	/*position: relative;*/
+/*}*/
+
+.layout-breadcrumb {
+	padding: 10px 15px 0;
+}
+
+/*.layout-content {
+	min-height: 500px;
+	padding-top: 10px;
+	margin: 0px;
+	overflow: hidden;
+	background: #fff;
+	border-radius: 4px;
+}*/
+
+.ivu-tabs-tabpane {
+	min-height: 500px;
+	padding-top: 10px;
+	margin: 0px;
+	overflow: hidden;
+	background: #fff;
+	border-radius: 4px;
+}
+
+.layout-copy {
+	text-align: center;
+	padding: 10px 0 20px;
+	color: #9ea7b4;
+}
+
+.layout-menu-left {
+	background: #464c5b;
+}
+
+.layout-header {
+	height: 60px;
+	background: #fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+
+.layout-logo-left {
+	width: 90%;
+	height: 30px;
+	background: #5b6270;
+	border-radius: 3px;
+	margin: 15px auto;
+}
+
+.menu_icon{
+	width:24px;
+	height:24px;
+}
+
+
+.submenu_icon {
+	width: 20px;
+	height: 20px;
+}
+.ivu-tabs-bar{
+	margin-bottom:0px;
+}
+#weather{
+    margin-right: 20px;
+}
+.nic{
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+    color: White;
+    margin-right: 3px;
+}
+.border_r{
+    background-color: #3065D9;
+    border: 1px solid transparent;
+    margin-right: 4px;
+    font-size: 14px;
+    color: White;
+    padding: 5px 6px;
+    border-radius: 0px;
+    padding-top: 0px;
+}
+.border_r:hover {
+    color: #fff;
+    background-color: #1b45a2;
+    border: #3065D9 1px solid;
+}
+.ivu-icon-ios-list:before{
+    position: relative!important;
+    top: 3px!important;
+}
+.ivu-icon-android-calendar:before{
+    position: relative!important;
+    top: 3px!important;
+}
+.ivu-icon-ios-paper:before{
+    position: relative!important;
+    top: 3px!important;
+}
+.ivu-icon-android-settings:before{
+    position: relative!important;
+    top: 3px!important;
+}
+
+/*主题*/
+#modal_theme .ivu-modal-body { text-align: center;}
+#skin{  
+    margin:10px;  
+    padding:25px;  
+    width:510px;  
+    padding-right:0px;  
+    list-style:none;  
+    overflow:hidden; 
+    height:100px;
+    display: inline-block;
+}  
+#skin li{  
+    float:left; 
+    width:60px;  
+    height:60px;  
+    text-indent:-999px;  
+    overflow:hidden;  
+    display:block;  
+    cursor:pointer;  
+}  
+#skin_0{  
+    background-color:#3F74E9;  
+}  
+#skin_1{  
+    background-color:#657081;  
+}
+#skin_2{  
+    background-color:#627F7E;  
+}
+#skin_3{  
+    background-color:#CC3432;  
+}  
+#skin_4{  
+    background-color:#B24079;  
+}
+#skin_5{  
+    background-color:#874D19;  
+}
+#skin_6{  
+    background-color:#F46F43;  
+}
+
+#skin_0.selected{
+    box-shadow: 0 0 10px #454a58;
+    height: 70px;
+    margin-top: -5px;
+    position: relative;  
+}  
+#skin_1.selected{
+    box-shadow: 0 0 10px #454a58;
+    height: 70px;
+    margin-top: -5px;
+    position: relative;  
+}
+#skin_2.selected{
+    box-shadow: 0 0 10px #454a58;
+    height: 70px;
+    margin-top: -5px;
+    position: relative;  
+}
+#skin_3.selected{
+    box-shadow: 0 0 10px #454a58;
+    height: 70px;
+    margin-top: -5px;
+    position: relative;  
+}  
+#skin_4.selected{
+    box-shadow: 0 0 10px #454a58;
+    height: 70px;
+    margin-top: -5px;
+    position: relative;  
+}
+#skin_5.selected{
+    box-shadow: 0 0 10px #454a58;
+    height: 70px;
+    margin-top: -5px;
+    position: relative;  
+}
+#skin_6.selected{
+    box-shadow: 0 0 10px #454a58;
+    height: 70px;
+    margin-top: -5px;
+    position: relative;  
+}
+
+html {
+    overflow-y: hidden !important;
+}
+
+.icon-xiaoyu, .icon-zhongyu, .icon-xiaodaozhongyu {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url(/img/xiaoyu.png);
+    background-size: 18px 18px;
+}
+
+.icon-leizhenyu, .icon-zhenyu {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url(/img/leizhenyu.png);
+    background-size: 18px 18px;
+}
+
+.icon-dayu {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url(/img/dayu.png);
+    background-size: 18px 18px;
+}
+
+.icon-qing {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url(/img/qing.png);
+    background-size: 18px 18px;
+}
+
+.icon-duoyun {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url(/img/duoyun.png);
+    background-size: 18px 18px;
+}
+
+.icon-yin {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url(/img/yin.png);
+    background-size: 18px 18px;
+}
+
+.content-col {
+    overflow-y: auto;
+}
+
+#modal_theme .ivu-modal-mask {
+    background-color: rgba(55,55,55,.08);
+}
+
+.ivu-tabs, .ivu-tabs-nav-container, .ivu-tabs-nav-wrap, .ivu-tabs-nav-scroll {
+    overflow: visible;
+}
+
+    .ivu-tabs.ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab {
+        margin-right: 7px;
+    }
+
+.ivu-badge-count {
+    top: -13px;
+    right: 9px;
+}

@@ -1,0 +1,34 @@
+﻿/*主题*/
+.main_top {
+    background-color: #657081;
+}
+.border_r {
+    background-color: #95958A;
+}
+.border_r:hover {
+    color: #fff;
+    background-color: #1b45a2;
+    border: #3065D9 1px solid;
+}
+.layout-menu-left {
+    background: #3F526D;
+}
+.ivu-menu-dark {
+    background: #3F526D;
+}
+.ivu-menu-submenu-title:hover {
+    background: #3F526D!important;
+}
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-item, .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title {
+    color: rgba(255,255,255,.8);
+}
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened {
+    background: #627998;
+}
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened .ivu-menu-submenu-title {
+    background: #3F526D;
+}
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item-active, .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item-active:hover {
+    background: #85BFD6!important;
+    color: White;
+}

@@ -1,0 +1,12 @@
+E:\J4F\J4F\J4F
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=J4F
+--content-root=E:\J4F\J4F\J4F
+--file=E:\J4F\J4F\J4F\Views\Home\Desk.cshtml
+--file=E:\J4F\J4F\J4F\Views\Home\Index.cshtml
+--file=E:\J4F\J4F\J4F\Views\Member\Login.cshtml
+--file=E:\J4F\J4F\J4F\Views\Shared\Error.cshtml
+--file=E:\J4F\J4F\J4F\Views\Shared\_Layout.cshtml
+--file=E:\J4F\J4F\J4F\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=E:\J4F\J4F\J4F\Views\_ViewImports.cshtml
+--file=E:\J4F\J4F\J4F\Views\_ViewStart.cshtml

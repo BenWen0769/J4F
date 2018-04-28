@@ -1,0 +1,32 @@
+﻿
+
+.cqtx{
+	margin-left:10px;
+	position:relative;
+	top:-5px;
+}
+
+
+/*桌面事项链接*/
+.desk_xx_link {
+	cursor: pointer;
+	margin-left: 8px;
+	max-width: 80%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display:inline-block;
+}
+	.desk_xx_link:hover {
+		color: #3399ff;
+	}
+
+
+.chart-content{
+	height:100%;
+	width:100%;
+}
+
+.chart-row .ivu-card-body {
+	padding: 0px;
+}
