@@ -1,106 +1,102 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
+<!DOCTYPE html>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>后台管理系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @*<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">*@
+    <link href="~/css/iview.css" rel="stylesheet" />
+    <link href="~/css/home/main.css" rel="stylesheet" />
+    <link href="~/css/app.css" rel="stylesheet" />
+    <script src="~/js/jquery-1.11.min.js"></script>
+    <script src="~/js/layer.js"></script>
+    <script src="~/js/vue.min.js"></script>
+    <script src="~/js/iview.min.js"></script>
+    <script src="~/js/home/main.js"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/js/HS_Util.js"></script>
+    <script src="~/js/jquery.cookie.js"></script>
+    <script src="~/js/jquery.leoweather.min.js"></script>
+    <link href="~/css/home/skin_0.css" rel="stylesheet" id="cssfile" />
+</head>
+<body scroll="no" style="overflow:hidden!important;overflow-y:hidden!important;">
+    <div id="app">
+        <div class="main_top">
+            <h1 style="float:left;margin-left:20px;">XX 后 台 管 理 系 统</h1>
+            <img alt="" src="/img/user.png" style=" position: relative; top: 5px;"></img>
+            <b><span v-cloak v-text="User.name" style="font-size: 14px;"></span><span style="font-size: 14px;">欢迎您！</span></b>&nbsp;
+            <span id="weather"></span>
+            <span style="display:inline-block;" id="tp-weather-widget"></span>
+            <i-button class="border_r" @@click="goHome"><img alt="" src="/img/home.png" class="nic"></img>首页</i-button>
+            <i-button class="border_r" @@click="refreshPage"><img alt="" src="/img/refresh.png" class="nic"></img>刷新</i-button>
+            <i-button class="border_r" @@click="modal_theme = true"><img alt="" src="/img/theme.png" class="nic"></img>主题</i-button>
+            <i-button class="border_r" @@click="backToLogin"><img alt="" src="/img/exit.png" class="nic"></img>退出</i-button>
         </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
+        <div class="layout">
+            <row type="flex" style="height:100%">
+                <i-col span="3" class="layout-menu-left">
+                    <i-Menu theme="dark" width="auto" :open-names="['0']" @@on-select="menuClick" accordion>
+                        <Submenu v-for="(menu,i) in menuData" :name="menu.id">
+                            <template slot="title">
+                                <Icon v-if="menu.icon" :type="menu.icon" :size="20"></Icon>
+                                {{ menu.title }}
+                            </template>
+                            <Menu-item v-for="(submenu,j) in menu.submenu" :name="submenu.id">
+                                {{ submenu.title }}
+                            </Menu-item>
+                        </Submenu>
+                    </i-Menu>
+                </i-col>
+                <i-col span="21" class-name="content-col">
+                    <br />
+                    <span></span>
+                    <Tabs type="card" @@on-tab-remove="handleTabRemove" :animated="false" v-model="curTab" @@on-click="RefreshMainList1">
+                        <Tab-pane v-for="tab in tabs" v-if="tab.id!==-1"
+                                  :closable="tab.id>0" :label="tab.title" :name="tab.id">
+                            <iframe :src="tab.link" class="ifr" scrolling="no" style=" min-height: 639px;"></iframe>
+                        </Tab-pane>
+                    </Tabs>
+                </i-col>
+            </row>
         </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
+        <Modal v-model="mainModal" :width="mm_width" @@on-cancel="mainModalClose" :mask-closable="false"
+               @@on-ok="mainModalClose" class-name="none-footer">
+            <div id="modalDiv"></div>
+        </Modal>
+        <Modal id="modal_theme" v-model="modal_theme" title="主题切换" :styles="{top: '300px'}">
+            <ul id="skin">
+                <li id="skin_0" title="默认" class="selected"></li>
+                <li id="skin_1" title="海蓝"></li>
+                <li id="skin_2" title="墨绿"></li>
+                <li id="skin_3" title="深红"></li>
+                <li id="skin_4" title="暗紫"></li>
+                <li id="skin_5" title="深棕"></li>
+                <li id="skin_6" title="浅橙"></li>
+            </ul>
+        </Modal>
     </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+</body>
+</html>
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>
+tpwidget("init", {
+    "flavor": "slim",
+    "location": "WS0GHKN5ZP7T",
+    "geolocation": "enabled",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "container": "tp-weather-widget",
+    "bubble": "enabled",
+    "alarmType": "badge",
+    "color": "#FFFFFF",
+    "uid": "U1FCE4637B",
+    "hash": "ad12299576321a960e72ddb2c8a0baf6"
+});
+    tpwidget("show");</script>
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
-</div>
+

@@ -5,27 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using J4F.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace J4F.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize(Roles = "admin")]
+        [Route("/")]
         public IActionResult Index()
         {
 
             return View();
         }
 
-        public IActionResult About()
+        [Authorize(Roles = "admin")]
+        public IActionResult Desk()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
 
             return View();
         }

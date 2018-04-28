@@ -1,0 +1,176 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>产品列表</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/vue.min.js"></script>
+    <script src="~/js/iview.min.js"></script>
+    <script src="~/js/HS_Util.js"></script>
+    <script src="~/js/app.js"></script>
+    <link href="~/css/iview.css" rel="stylesheet" />
+    <link href="~/css/app.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/x-template" id="list">
+        <div class="hslist">
+            <div class="list-btn">
+                <row>
+                    <i-col span="6" align="left">
+                        <Input v-model="searchKey" placeholder="请输入关键字" class="searchInput"
+                               @@on-enter="searchList" size="default">
+                        <Button slot="append" icon="ios-search" @@click="searchList"></Button>
+                        </Input>
+                    </i-col>
+                    <i-col span="12" align="center">
+                        <RadioGroup v-model="zt" type="button" @@on-change="ztChange">
+                            <Radio label="全部"></Radio>
+                            <Radio label="上架"></Radio>
+                            <Radio label="下架"></Radio>
+                        </RadioGroup>
+                    </i-col>
+                    <i-col span="6" align="right">
+                        <i-Button type="primary" shape="circle" icon="android-add" @@click="addRwdy">新增</i-Button>
+                    </i-col>
+                </row>
+            </div>
+            <i-Table border highlight-row :columns="columns" :data="data" @@on-row-dblclick="showDetail" @@on-current-change=""></i-Table>
+            <div class="pageDiv">
+                <Page :current="cPage" placement="top" :total="total" show-sizer :page-size="pageSize"
+                      :page-size-opts="[10,15,20]" @@on-change="pageChange" @@on-page-size-change="pageSizeChange"></Page>
+            </div>
+        </div>
+    </script>
+    <script>
+        var vm =new Vue({
+            el: '#app',
+            template: '#list',
+            data: {
+                columns: [
+                    {
+                        type:'index',
+                        title: '序号',
+                        width:80,
+                        align:'center'
+                    },
+                    {
+                        title: '产品名称',
+                        key: 'sjmc',
+                        align:'center'
+                    },
+                    {
+                        title: '种类',
+                        key: 'bbh',
+                        width: 100,
+                        align:'center'
+                    },
+                    {
+                        title: '库存',
+                        width: 100,
+                        key: 'sjlx',
+                        align:'center'
+                    },
+                    {
+                        title: '价格',
+                        key: 'sydw'
+                    },
+                     {
+                         title: '操作',
+                         key: 'action',
+                         width: 130,
+                         align: 'center',
+                         render: function(h, params){
+                             return h('div', [
+                                 h('Button', {
+                                     props: {
+                                         type: 'info',
+                                         size: 'small'
+                                     },
+                                     on: {
+                                         click: function(){
+                                             vm.showDetail(params.row);
+                                         }
+                                     }
+                                 }, '查看')
+                             ]);
+                         }
+                     }
+                ],
+                data:[],
+                cPage:1,
+                total:20,
+                zt:'全部',
+                pageSize:10,
+                searchKey:''
+            },
+            methods:{
+                addRwdy:function(){
+                    OpenLayer('../SS_sjbs/Sjbs_Rwdy_Edit.aspx?id=0','任务定义', 800,400);
+                },
+                removeRow:function(rowid){
+                    var self=this;
+                    var p={action:'del',delid:rowid};
+                    RefreshPageData(p,function(data){
+                        if(data && data.status==='ok'){
+                            self.$Message.success('删除任务定义成功');
+                            this.total--;
+                            self.doChange();
+                        }else{
+                            self.$Message.error('删除任务失败');
+                        }
+                    });
+                },
+                showDetail:function(row){
+                    OpenLayer('../SS_sjbs/Sjbs_Rwdy_Edit.aspx?id='+row.id,'任务定义', 800,370);
+                },
+                searchList:function(){
+                    this.cPage=1;
+                    var self=this;
+                    var parms = {action:'searchlist',searchkey:this.searchKey,page:this.cPage,pagesize:this.pageSize,status:this.zt,};
+                    RefreshPageData(parms,function(info){
+                        self.data=info.data;
+                        self.total=info.total;
+                    });
+                },
+                ztChange:function(){
+                    this.cPage=1;
+                    this.pageSize=10;
+                    this.doChange();
+                },
+                pageChange:function(page){
+                    this.cPage=page;
+                    this.doChange();
+                },
+                pageSizeChange:function(pageSize){
+                    this.pageSize=pageSize;
+                    this.doChange();
+                },
+                doChange:function(){
+                    var self=this;
+                    var parms = {action:'data',page:this.cPage,pagesize:this.pageSize,status:this.zt};
+                    RefreshPageData(parms,function(info){
+                        self.data=info.data;
+                        self.total=info.total;
+                        ResizeParentFrame();
+                        setTimeout("ResizeParentFrame()", 85);
+                        setTimeout("ResizeParentFrame()", 200);
+                        setTimeout("ResizeParentFrame()", 550);
+                    });
+                }
+            }
+        });
+        //更新列表数据
+        vm.$on('refreshlist',function(){
+            vm.doChange();
+        });
+    </script>
+</body>
+</html>
