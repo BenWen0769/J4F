@@ -1,9 +1,3 @@
 /.vs
-/J4F.Api/bin
-/J4F.Api/obj
-/J4F.Server/bin
-/J4F.Server/obj
-/J4F.Utils/bin
-/J4F.Utils/obj
-/J4F/obj
-/J4F/bin
+bin
+obj
