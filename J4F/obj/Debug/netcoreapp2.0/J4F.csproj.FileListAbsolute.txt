@@ -12,3 +12,17 @@ E:\J4F\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.csprojResolveAssemblyReference.cache
 E:\J4F\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.Server.dll
 E:\J4F\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.Server.pdb
 E:\J4F\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.csproj.CopyComplete
+G:\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.deps.json
+G:\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.runtimeconfig.json
+G:\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.runtimeconfig.dev.json
+G:\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.dll
+G:\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.pdb
+G:\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.Server.dll
+G:\J4F\J4F\bin\Debug\netcoreapp2.0\J4F.Server.pdb
+G:\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.csprojResolveAssemblyReference.cache
+G:\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.csproj.CoreCompileInputs.cache
+G:\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.AssemblyInfoInputs.cache
+G:\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.AssemblyInfo.cs
+G:\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.csproj.CopyComplete
+G:\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.dll
+G:\J4F\J4F\obj\Debug\netcoreapp2.0\J4F.pdb
