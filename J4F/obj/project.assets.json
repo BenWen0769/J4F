@@ -13146,41 +13146,37 @@
   },
   "packageFolders": {
     "C:\\Users\\Ben\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\J4F\\J4F\\J4F\\J4F.csproj",
+      "projectUniqueName": "G:\\J4F\\J4F\\J4F.csproj",
       "projectName": "J4F",
-      "projectPath": "E:\\J4F\\J4F\\J4F\\J4F.csproj",
+      "projectPath": "G:\\J4F\\J4F\\J4F.csproj",
       "packagesPath": "C:\\Users\\Ben\\.nuget\\packages\\",
-      "outputPath": "E:\\J4F\\J4F\\J4F\\obj\\",
+      "outputPath": "G:\\J4F\\J4F\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\Ben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://119.29.22.190:8999/nuget": {},
-        "http://120.79.200.62:9000/nuget": {},
+        "http://120.79.200.62:9000/nuget/": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "E:\\J4F\\J4F\\J4F.Server\\J4F.Server.csproj": {
-              "projectPath": "E:\\J4F\\J4F\\J4F.Server\\J4F.Server.csproj"
+            "G:\\J4F\\J4F.Server\\J4F.Server.csproj": {
+              "projectPath": "G:\\J4F\\J4F.Server\\J4F.Server.csproj"
             }
           }
         }
