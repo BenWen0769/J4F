@@ -14,5 +14,11 @@ namespace J4F.Controllers
         {
             return View();
         }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
     }
 }
