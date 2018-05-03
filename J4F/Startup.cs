@@ -16,7 +16,7 @@ namespace J4F
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration; 
         }
 
         public IConfiguration Configuration { get; }
@@ -26,9 +26,10 @@ namespace J4F
         {
             services.AddMvc();
 
-            //services.AddDbContext<Server.J4FContext>(option=> {
-            //    option.UseSqlServer(Configuration.GetConnectionString("SqlServer"), b => b.UseRowNumberForPaging());
-            //});
+            services.AddDbContext<Server.J4FContext>(option =>
+            {
+                option.UseSqlServer(Configuration.GetConnectionString("SqlServer"), b => b.UseRowNumberForPaging());
+            });
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, o =>

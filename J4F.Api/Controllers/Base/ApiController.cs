@@ -7,7 +7,7 @@ namespace J4F.Api.Controllers
     {
 
 
-        public JsonResult Faile(string mes)
+        public JsonResult Faile(string mes = "程序出错")
         {
             return Json(new Models.ApiResult()
             {
@@ -17,7 +17,7 @@ namespace J4F.Api.Controllers
         }
 
 
-        public JsonResult Success(object res)
+        public JsonResult Success(object res = null)
         {
             return Json(new Models.ApiResult()
             {
