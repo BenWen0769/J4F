@@ -113,7 +113,7 @@
             },
             methods:{
                 addRwdy:function(){
-                    OpenLayer('../SS_sjbs/Sjbs_Rwdy_Edit.aspx?id=0','任务定义', 800,400);
+                    OpenLayer('@Url.Action("add")','添加商品', 800,400);
                 },
                 removeRow:function(rowid){
                     var self=this;

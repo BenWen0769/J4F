@@ -10,6 +10,7 @@ namespace J4F.Server
             {
                 return new Member()
                 {
+                    ID = 1,
                     Name = "admin",
                     IsAdmin = true
                 };

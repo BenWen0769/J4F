@@ -53,6 +53,7 @@ namespace J4F
 
             app.UseStaticFiles();
 
+            
 
             app.UseAuthentication();
 

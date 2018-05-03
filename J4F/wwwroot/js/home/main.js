@@ -95,8 +95,8 @@ $(function () {
                     }
                 });
             },
-            RefreshMainList1: function () {
-                setTimeout("var thisCenter = getCenterWindow();thisCenter.location.href = thisCenter.location.href;",200);
+            tabClick: function (name) {
+
             }
         },
         created: function() {

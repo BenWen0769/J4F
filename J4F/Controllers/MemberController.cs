@@ -39,7 +39,7 @@ namespace J4F.Controllers
             {
 
                 var identity = new ClaimsIdentity("Basic");
-                identity.AddClaim(new Claim(ClaimTypes.Name, user.Name));
+                identity.AddClaim(new Claim(ClaimTypes.Name, "user"+user.ID));
                 if(user.IsAdmin) identity.AddClaim(new Claim(ClaimTypes.Role, "admin"));
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
                 return Json(new LoginViewModal()
